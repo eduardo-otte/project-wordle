@@ -1,4 +1,5 @@
 import React from "react";
+import { NUM_OF_LETTERS } from "../../constants";
 
 function GuessInput({ addGuess }) {
   const [guess, setGuess] = React.useState("");
@@ -15,10 +16,10 @@ function GuessInput({ addGuess }) {
       <label htmlFor="guess-input">Enter guess:</label>
       <input
         value={guess}
-        minLength={5}
-        maxLength={5}
-        pattern="[a-zA-Z]{5}"
-        title="5 letter word"
+        minLength={NUM_OF_LETTERS}
+        maxLength={NUM_OF_LETTERS}
+        pattern={`[a-zA-Z]{${NUM_OF_LETTERS}}`}
+        title={`${NUM_OF_LETTERS} letter word`}
         onChange={(event) => setGuess(event.target.value.toLocaleUpperCase())}
         id="guess-input"
         type="text"
